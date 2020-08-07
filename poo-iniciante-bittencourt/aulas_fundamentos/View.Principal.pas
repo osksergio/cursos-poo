@@ -59,34 +59,41 @@ procedure TfrmPrincipal.Button1Click(Sender: TObject);
 var
   Pessoa1: TPessoa;
   Cliente1: TCliente;
+  //Cliente2, Cliente3: TCliente;
   Valor: Currency;
 begin
   Pessoa1 := TPessoa.Create;
+  Pessoa1.Nome := 'Fulando da Silva';
+  Pessoa1.DataNasc := '01/01/1980';
+  Pessoa1.Sexo := 'Masculino';
   Cliente1 := TCliente.Create;
+
+  //Cliente2 := TCliente.Create('Sérgio Oseko');   // na aula #12 foi criado um constructor "Create" na classe "Cliente"
+  //Cliente3 := TCliente.Create(Pessoa1);
   try
     { **************************************************** }
     { *** aula sobre Polimorfismo (virtual e override) *** }
     { **************************************************** }
-
     //ShowMessage(Pessoa1.RetornaNome);
+    ShowMessage(Cliente1.Endereco.Logradouro);
+    //ShowMessage(Cliente2.Nome);
     ShowMessage(Cliente1.MetodoAbstrato);
     ShowMessage(Cliente1.RetornaNome);
-
-    // Parei na aula #11 !!!!!!!!!!!!!!!!!!! 05/08/2020 (começar a aula #12 em 06/08/2020)
+    //ShowMessage('Nome: ' + Cliente3.Nome + ' - ' + 'Nasc: ' + Cliente3.DataNasc + ' - ' + 'Sexo: ' + Cliente3.Sexo);
 
     { ****************************************** }
     { *** aula sobre POLIMORFISMO (overload) *** }
     { ****************************************** }
     {
     ShowMessage(Pessoa1.Receber(5));
-
     Valor := 10.5;
     ShowMessage(Pessoa1.Receber(Valor));
-
     ShowMessage(Pessoa1.Receber(5, 2));
     }
 
-
+    { ****************************************** }
+    { *** primeiras aulas criação de classes *** }
+    { ****************************************** }
     {
     Pessoa1.Nome := edtNome.Text;
     Pessoa1.DataNasc := '06/03/1978';
@@ -97,7 +104,9 @@ begin
     }
   finally
     Pessoa1.Free;
-    Cliente1.Free;
+    Cliente1.Destroy;
+    //Cliente2.Free;
+    //Cliente3.Free;
   end;
 end;
 

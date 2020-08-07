@@ -23,7 +23,6 @@ type
     function Receber(I: Integer): string; overload;
     function Receber(C: Currency): string; overload;
     function Receber(A, B: Integer): string; overload;
-
     function RetornaNome: string; virtual;
     function MetodoAbstrato: string; virtual; abstract;
   end;
